@@ -17,6 +17,8 @@ enum Emotion {
     case happy
     case boring
     case hungry
+    
+    static let allValues = [hungry, happy, boring, deadpool, original]
 }
 
 class PetFigure: SCNNode {
@@ -35,8 +37,6 @@ class PetFigure: SCNNode {
         idleModel = NORMAL_IDLE_MODEL
         clickedModel = CLICKED_MODEL
         curMaterialPath = EMOTION_ORIGINAL
-        currentMaterial = SCNMaterial()
-        currentMaterial.diffuse.contents = UIImage(named: curMaterialPath)
         
         super.init()
     }
@@ -53,16 +53,15 @@ class PetFigure: SCNNode {
     let INIT_MODEL = "art.scnassets/touchToShow.dae"
     
     
-    let EMOTION_DEADPOOL = "art.scnassets/Deadpool.png"
-    let EMOTION_ORIGINAL = "art.scnassets/Original.png"
-    let EMOTION_HUNGRY = "art.scnassets/hungry.png"
-    let EMOTION_BORING = "art.scnassets/boring.png"
-    let EMOTION_HAPPY = "art.scnassets/happy.png"
+    let EMOTION_DEADPOOL = "Deadpool_copy"
+    let EMOTION_ORIGINAL = "Muhammer_copy"
+    let EMOTION_HUNGRY = "hungry_copy"
+    let EMOTION_BORING = "boring_copy"
+    let EMOTION_HAPPY = "happy_copy"
     
-    var currentMaterial: SCNMaterial
     var curMaterialPath: String {
         didSet {
-            loadMaterial()
+            loadModel()
         }
     }
     
@@ -107,6 +106,7 @@ class PetFigure: SCNNode {
         wrapperNode = SCNNode()
         
         for child in virtualObjectScene.rootNode.childNodes {
+            child.geometry?.firstMaterial?.diffuse.contents = UIImage(named: curMaterialPath)
             wrapperNode.addChildNode(child)
         }
         
@@ -117,15 +117,6 @@ class PetFigure: SCNNode {
         })
     }
     
-    func loadMaterial() {
-        
-//        currentMaterial.diffuse.contents = UIImage(named: curMaterialPath)
-        
-        print("path", curMaterialPath)
-        self.geometry?.firstMaterial?.diffuse.contents = UIImage(named: curMaterialPath)
-        
-    }
-    
     func show() {
         wrapperNode.removeFromParentNode()
         
@@ -134,10 +125,9 @@ class PetFigure: SCNNode {
         wrapperNode = SCNNode()
         
         for child in virtualObjectScene.rootNode.childNodes {
+            child.geometry?.firstMaterial?.diffuse.contents = UIImage(named: curMaterialPath)
             wrapperNode.addChildNode(child)
         }
-        
-        loadMaterial()
         
         self.addChildNode(wrapperNode)
         // TODO: modify delay second to smooth movement
@@ -148,7 +138,6 @@ class PetFigure: SCNNode {
     
     func touched() {
         //change movement when
-        print("touched")
         wrapperNode.removeFromParentNode()
         
         guard let virtualObjectScene = SCNScene(named: clickedModel) else {return}
@@ -156,14 +145,11 @@ class PetFigure: SCNNode {
         wrapperNode = SCNNode()
         
         for child in virtualObjectScene.rootNode.childNodes {
+            child.geometry?.firstMaterial?.diffuse.contents = UIImage(named: curMaterialPath)
             wrapperNode.addChildNode(child)
         }
         
-        loadMaterial()
-        
         self.addChildNode(wrapperNode)
-        
-//        let playDuration = Int.random(in: 7...10)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3) + 0.5, execute: {
             self.loadModel()
@@ -186,8 +172,6 @@ class PetFigure: SCNNode {
         }
     }
     
-    
-    
     func loadModel() {
         //load ship
         wrapperNode.removeFromParentNode()
@@ -197,10 +181,10 @@ class PetFigure: SCNNode {
         wrapperNode = SCNNode()
         
         for child in virtualObjectScene.rootNode.childNodes {
+            child.geometry?.firstMaterial?.diffuse.contents = UIImage(named: curMaterialPath)
+            
             wrapperNode.addChildNode(child)
         }
-        
-        loadMaterial()
         
         self.addChildNode(wrapperNode)
     }
@@ -213,13 +197,11 @@ class PetFigure: SCNNode {
         } else if prevFullness >= 20 && fullness < 20 {
             idleModel = ANGRY_IDLE_MODEL
         }
-        print(prevFullness, ",", fullness, ",", idleModel)
         prevFullness = fullness
     }
     
     func decreaseFullness(degree: Int) {
         fullness = fullness - degree
-        print("fullness: ", fullness)
         if fullness < 0 {
             fullness = 0
         }
@@ -227,7 +209,6 @@ class PetFigure: SCNNode {
     
     func decreaseHappiness(degree: Int) {
         happiness = happiness - degree
-        print("happiness: ", happiness)
         if happiness < 0 {
             happiness = 0
         }
