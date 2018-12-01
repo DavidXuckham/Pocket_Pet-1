@@ -177,7 +177,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         fullnessBar.isHidden = petNotYetPlaced
         foodButton.isHidden = petNotYetPlaced
         textureButton.isHidden = petNotYetPlaced
-        settingButton.isHidden = petNotYetPlaced
+//        settingButton.isHidden = petNotYetPlaced
         fullIcon.isHidden = petNotYetPlaced
         happyIcon.isHidden = petNotYetPlaced
         SUMMON.isHidden = !petNotYetPlaced
