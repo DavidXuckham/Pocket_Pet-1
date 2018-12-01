@@ -15,7 +15,7 @@ class SettingView: UIView{
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+//        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
         return label
     } ()
     
