@@ -531,8 +531,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 }
             }
         } else if let _ = collectionView as? TextureCollectionView {
-            
-            
+            if ind < 5 {
+                pet.changeMaterial(emotion: Emotion.allValues[ind])
+                settingsLauncher.dismissTextureMenu()
+            }
         }
         updateBars()
     }
