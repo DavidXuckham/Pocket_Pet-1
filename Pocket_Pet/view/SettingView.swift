@@ -21,7 +21,7 @@ class SettingView: UIView{
     
     let descLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Pocket pet is a Simulation Game where the player gets to collect different kinds of food to feed and utilizing toys to amuse me. Accordingly, i will give you some responds and feedbacks. So, exploration, discovery and hope you all enjoy it!"
+        label.text = "Welcome to voodoo world, I am your sidekick here, however your day was, I am here for you. I will have fun with you, listen to you, understand you and support you whenever you need, on the top of that, I need food to keep my vitality, go collect some and feed me, you'll see how fun it'd be. Enter my world ,explore, and enjoy!"
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 8
