@@ -183,7 +183,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         fullnessBar.isHidden = petNotYetPlaced
         foodButton.isHidden = petNotYetPlaced
         textureButton.isHidden = petNotYetPlaced
-//        settingButton.isHidden = petNotYetPlaced
+        settingButton.isHidden = petNotYetPlaced
         fullIcon.isHidden = petNotYetPlaced
         happyIcon.isHidden = petNotYetPlaced
         SUMMON.isHidden = !petNotYetPlaced
@@ -541,7 +541,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                     pet.eatFood(food: food)
                     settingsLauncher.dismissFoodMenu()
                 }
-            }
+            }    
         } else if let _ = collectionView as? TextureCollectionView {
             if ind < 5 {
                 pet.changeMaterial(emotion: Emotion.allValues[ind])
@@ -611,7 +611,7 @@ extension ViewController: UIViewControllerAnimatedTransitioning{
         
     }
     private func animationForPresentedView(transitionContext: UIViewControllerContextTransitioning){
-        let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        
 //        transitionContext.containerView.addSubview(presentedView)
         //        presentedView.transform=__CGAffineTransformMake(1.0, 0.0)
        
@@ -629,7 +629,7 @@ extension ViewController: UIViewControllerAnimatedTransitioning{
     private func animationForDismissedView(transitionContext: UIViewControllerContextTransitioning){
         
         
-        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        
 //        transitionContext.containerView.addSubview(dismissView)
         //        presentedView.transform=__CGAffineTransformMake(1.0, 0.0)
         

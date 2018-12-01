@@ -101,6 +101,7 @@ class SettingsLauncher: NSObject {
             settingView.copyrightLabel.frame = CGRect(x: x/2 - 62, y: window.frame.height - 70, width: 250, height: 40)
             settingView.hiLabel.frame = CGRect(x: width / 2 - 75, y: window.frame.height / 5 - 150, width: 150, height: 150)
             settingView.figureImg.center = CGPoint(x: x, y: window.frame.height / 5)
+            settingView.descLabel.frame = CGRect(x: 30, y: window.frame.height / 5, width: 200, height: 300)
         }
     }
     

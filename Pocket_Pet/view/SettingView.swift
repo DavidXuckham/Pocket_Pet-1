@@ -16,6 +16,18 @@ class SettingView: UIView{
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
 //        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+
+        return label
+    } ()
+    
+    let descLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Welcome to voodoo world, I am your sidekick here, however your day was, I am here for you. I will have fun with you, listen to you, understand you and support you whenever you need, on the top of that, I need food to keep my vitality, go collect some and feed me, you'll see how fun it'd be. Enter my world ,explore, and enjoy!"
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 8
+//        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+
         return label
     } ()
     
@@ -46,6 +58,7 @@ class SettingView: UIView{
         self.addSubview(copyrightLabel)
         self.addSubview(figureImg)
         self.addSubview(hiLabel)
+        self.addSubview(descLabel)
         print(figureImg)
 //        print(self.subviews)
         
