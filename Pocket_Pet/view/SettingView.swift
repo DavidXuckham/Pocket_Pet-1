@@ -16,6 +16,7 @@ class SettingView: UIView{
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
 //        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+
         return label
     } ()
     
@@ -26,6 +27,7 @@ class SettingView: UIView{
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 8
 //        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+
         return label
     } ()
     
