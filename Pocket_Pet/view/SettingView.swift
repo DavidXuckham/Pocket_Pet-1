@@ -15,7 +15,17 @@ class SettingView: UIView{
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+//        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
+        return label
+    } ()
+    
+    let descLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.text = "Pocket pet is a Simulation Game where the player gets to collect different kinds of food to feed and utilizing toys to amuse me. Accordingly, i will give you some responds and feedbacks. So, exploration, discovery and hope you all enjoy it!"
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 8
+//        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
         return label
     } ()
     
@@ -46,6 +56,7 @@ class SettingView: UIView{
         self.addSubview(copyrightLabel)
         self.addSubview(figureImg)
         self.addSubview(hiLabel)
+        self.addSubview(descLabel)
         print(figureImg)
 //        print(self.subviews)
         

@@ -177,7 +177,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         fullnessBar.isHidden = petNotYetPlaced
         foodButton.isHidden = petNotYetPlaced
         textureButton.isHidden = petNotYetPlaced
-//        settingButton.isHidden = petNotYetPlaced
+        settingButton.isHidden = petNotYetPlaced
         fullIcon.isHidden = petNotYetPlaced
         happyIcon.isHidden = petNotYetPlaced
         SUMMON.isHidden = !petNotYetPlaced
@@ -506,8 +506,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                     settingsLauncher.dismissFoodMenu()
                 }
             }
-        } else if let _ = collectionView as? TextureCollectionView {
-            
+        } else if let textureCollectionView = collectionView as? TextureCollectionView {
+            if ind < textureCollectionView.textures.count {
+                settingsLauncher.dismissTextureMenu()()
+            }
             
         }
         updateBars()
