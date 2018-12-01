@@ -84,15 +84,6 @@
                                     <constraint firstAttribute="height" constant="20" id="PAc-fS-rPU"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-YW-DXg">
-                                <rect key="frame" x="153" y="617" width="69" height="30"/>
-                                <state key="normal" title="SUMMON">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="SurfaceClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="q29-p2-Fi3"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u56-80-4jP">
                                 <rect key="frame" x="25" y="597" width="45" height="45"/>
                                 <constraints>
@@ -150,14 +141,26 @@
                                     <action selector="popUpSetting:" destination="BV1-FR-VrT" eventType="touchUpInside" id="x8k-gK-FCs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPf-yk-KWe">
-                                <rect key="frame" x="164" y="579" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="RESET">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPf-yk-KWe">
+                                <rect key="frame" x="240" y="597" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="O84-Gg-Ykd"/>
+                                    <constraint firstAttribute="height" constant="45" id="RWG-FM-o6n"/>
+                                </constraints>
+                                <state key="normal" image="reset">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="resetPet:" destination="BV1-FR-VrT" eventType="touchUpInside" id="2Gw-d3-86s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-YW-DXg">
+                                <rect key="frame" x="149" y="542" width="69" height="30"/>
+                                <state key="normal" title="SUMMON">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="SurfaceClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="q29-p2-Fi3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -175,7 +178,9 @@
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="lsZ-YW-DXg" firstAttribute="centerX" secondItem="BrB-h1-WRS" secondAttribute="centerX" id="XYx-Px-WKW"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="qMN-In-JD8" firstAttribute="leading" secondItem="WPf-yk-KWe" secondAttribute="trailing" constant="20" id="don-y8-GGK"/>
                             <constraint firstItem="aMI-dN-iwQ" firstAttribute="top" secondItem="kyj-Zr-VxA" secondAttribute="bottom" constant="10" id="e8k-E8-4NS"/>
+                            <constraint firstItem="WPf-yk-KWe" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" constant="-25" id="gVF-GM-XI9"/>
                             <constraint firstItem="u56-80-4jP" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="oKM-KI-k8g"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="kyj-Zr-VxA" secondAttribute="trailing" constant="100" id="tOU-l7-euj"/>
@@ -207,6 +212,7 @@
         <image name="figure" width="72" height="72"/>
         <image name="fullness" width="203.29411315917969" height="203.29411315917969"/>
         <image name="happiness" width="75" height="75"/>
+        <image name="reset" width="72" height="72"/>
         <image name="setting" width="72" height="72"/>
         <image name="skullpack" width="72" height="72"/>
     </resources>
