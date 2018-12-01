@@ -599,7 +599,7 @@ extension ViewController: UIViewControllerAnimatedTransitioning{
         
     }
     private func animationForPresentedView(transitionContext: UIViewControllerContextTransitioning){
-        let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)!
+        
 //        transitionContext.containerView.addSubview(presentedView)
         //        presentedView.transform=__CGAffineTransformMake(1.0, 0.0)
        
@@ -617,7 +617,7 @@ extension ViewController: UIViewControllerAnimatedTransitioning{
     private func animationForDismissedView(transitionContext: UIViewControllerContextTransitioning){
         
         
-        let dismissView = transitionContext.view(forKey: UITransitionContextViewKey.from)!
+        
 //        transitionContext.containerView.addSubview(dismissView)
         //        presentedView.transform=__CGAffineTransformMake(1.0, 0.0)
         
