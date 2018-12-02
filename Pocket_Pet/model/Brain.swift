@@ -26,4 +26,29 @@ class Brain: SCNNode {
         self.addChildNode(wrapperNode)
         
     }
+    
+    func loadSkull() {
+        //load apple
+        guard let virtualObjectScene = SCNScene(named: "art.scnassets/skull.dae") else {return}
+        
+        let wrapperNode = SCNNode()
+        
+        for child in virtualObjectScene.rootNode.childNodes {
+            wrapperNode.addChildNode(child)
+        }
+        
+        self.addChildNode(wrapperNode)
+    }
+    
+    func loadPokeBall() {
+        guard let virtualObjectScene = SCNScene(named: "art.scnassets/burger.dae") else {return}
+        
+        let wrapperNode = SCNNode()
+        
+        for child in virtualObjectScene.rootNode.childNodes {
+            wrapperNode.addChildNode(child)
+        }
+        
+        self.addChildNode(wrapperNode)
+    }
 }
