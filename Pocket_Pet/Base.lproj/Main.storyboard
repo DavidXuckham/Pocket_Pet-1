@@ -129,10 +129,14 @@
                                     <action selector="resetPet:" destination="BV1-FR-VrT" eventType="touchUpInside" id="2Gw-d3-86s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-YW-DXg">
-                                <rect key="frame" x="149" y="542" width="69" height="30"/>
-                                <state key="normal" title="SUMMON">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-YW-DXg">
+                                <rect key="frame" x="162.5" y="592" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="293-o6-l57"/>
+                                    <constraint firstAttribute="width" constant="50" id="xF9-nM-jx7"/>
+                                </constraints>
+                                <state key="normal" title="SUMMON" image="summon">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="SurfaceClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="q29-p2-Fi3"/>
@@ -142,7 +146,6 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kyj-Zr-VxA" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="85" id="6fa-Gb-KGs"/>
-                            <constraint firstItem="lsZ-YW-DXg" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="bottom" constant="-50" id="97n-0S-tSs"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="qMN-In-JD8" secondAttribute="bottom" constant="25" id="BTi-90-T1g"/>
                             <constraint firstItem="2OI-R2-fhv" firstAttribute="leading" secondItem="u56-80-4jP" secondAttribute="trailing" constant="20" id="DgX-jd-9xg"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
@@ -156,6 +159,7 @@
                             <constraint firstItem="qMN-In-JD8" firstAttribute="leading" secondItem="WPf-yk-KWe" secondAttribute="trailing" constant="20" id="don-y8-GGK"/>
                             <constraint firstItem="aMI-dN-iwQ" firstAttribute="top" secondItem="kyj-Zr-VxA" secondAttribute="bottom" constant="10" id="e8k-E8-4NS"/>
                             <constraint firstItem="WPf-yk-KWe" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" constant="-25" id="gVF-GM-XI9"/>
+                            <constraint firstItem="lsZ-YW-DXg" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" constant="-25" id="k4u-RG-pvW"/>
                             <constraint firstItem="u56-80-4jP" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="25" id="oKM-KI-k8g"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="kyj-Zr-VxA" secondAttribute="trailing" constant="100" id="tOU-l7-euj"/>
@@ -184,11 +188,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="figure" width="72" height="72"/>
-        <image name="fullness" width="203.29411315917969" height="203.29411315917969"/>
-        <image name="happiness" width="75" height="75"/>
-        <image name="reset" width="72" height="72"/>
-        <image name="setting" width="72" height="72"/>
-        <image name="skullpack" width="72" height="72"/>
+        <image name="figure" width="48" height="48"/>
+        <image name="fullness" width="96" height="96"/>
+        <image name="happiness" width="100" height="100"/>
+        <image name="reset" width="48" height="48"/>
+        <image name="setting" width="96" height="96"/>
+        <image name="skullpack" width="48" height="48"/>
+        <image name="summon" width="480" height="480"/>
     </resources>
 </document>

@@ -12,11 +12,11 @@
 		2D89431A21B0E2F400A11DA1 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D89431921B0E2F400A11DA1 /* PresentationViewController.swift */; };
 		7801B3DC21B242F0001DD8D6 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7801B3DB21B242F0001DD8D6 /* BackgroundMusic.mp3 */; };
 		7801B3DE21B3B689001DD8D6 /* Arrorw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801B3DD21B3B689001DD8D6 /* Arrorw.swift */; };
+		7801B3E321B496B8001DD8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7801B3E221B496B8001DD8D6 /* Assets.xcassets */; };
 		7813FE53219B8AB700FAF569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE52219B8AB700FAF569 /* AppDelegate.swift */; };
 		7813FE55219B8AB700FAF569 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7813FE54219B8AB700FAF569 /* art.scnassets */; };
 		7813FE57219B8AB700FAF569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE56219B8AB700FAF569 /* ViewController.swift */; };
 		7813FE5A219B8AB700FAF569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7813FE58219B8AB700FAF569 /* Main.storyboard */; };
-		7813FE5C219B8AB800FAF569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7813FE5B219B8AB800FAF569 /* Assets.xcassets */; };
 		7813FE5F219B8AB800FAF569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7813FE5D219B8AB800FAF569 /* LaunchScreen.storyboard */; };
 		7813FE6A219B8AB800FAF569 /* Pocket_PetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE69219B8AB800FAF569 /* Pocket_PetTests.swift */; };
 		7813FE75219B8AB800FAF569 /* Pocket_PetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE74219B8AB800FAF569 /* Pocket_PetUITests.swift */; };
@@ -60,12 +60,12 @@
 		2D89431921B0E2F400A11DA1 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		7801B3DB21B242F0001DD8D6 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		7801B3DD21B3B689001DD8D6 /* Arrorw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrorw.swift; sourceTree = "<group>"; };
+		7801B3E221B496B8001DD8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = model/Assets.xcassets; sourceTree = "<group>"; };
 		7813FE4F219B8AB700FAF569 /* Pocket_Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pocket_Pet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7813FE52219B8AB700FAF569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7813FE54219B8AB700FAF569 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		7813FE56219B8AB700FAF569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7813FE59219B8AB700FAF569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7813FE5B219B8AB800FAF569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7813FE5E219B8AB800FAF569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7813FE60219B8AB800FAF569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7813FE65219B8AB800FAF569 /* Pocket_PetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pocket_PetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,8 +145,8 @@
 				7813FE52219B8AB700FAF569 /* AppDelegate.swift */,
 				7813FE54219B8AB700FAF569 /* art.scnassets */,
 				7813FE58219B8AB700FAF569 /* Main.storyboard */,
-				7813FE5B219B8AB800FAF569 /* Assets.xcassets */,
 				7801B3DB21B242F0001DD8D6 /* BackgroundMusic.mp3 */,
+				7801B3E221B496B8001DD8D6 /* Assets.xcassets */,
 				7813FE5D219B8AB800FAF569 /* LaunchScreen.storyboard */,
 				7813FE60219B8AB800FAF569 /* Info.plist */,
 			);
@@ -325,7 +325,7 @@
 				7813FE55219B8AB700FAF569 /* art.scnassets in Resources */,
 				2D89431821B0DB1900A11DA1 /* SettingViewController.xib in Resources */,
 				7813FE5F219B8AB800FAF569 /* LaunchScreen.storyboard in Resources */,
-				7813FE5C219B8AB800FAF569 /* Assets.xcassets in Resources */,
+				7801B3E321B496B8001DD8D6 /* Assets.xcassets in Resources */,
 				8A3D4A2721B250B40020B53A /* SettingView.xib in Resources */,
 				7813FE5A219B8AB700FAF569 /* Main.storyboard in Resources */,
 			);

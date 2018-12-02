@@ -60,7 +60,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     let timeInterval = 10
     
     // maximum food generated each time
-    let maxFood = 5
+    let maxFood = 10
     
     // current food in scene
     var foodHasGenerated = 0
@@ -87,6 +87,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     //locatePet? boolean for determining whether to put pet into detected plane
     var locatePet:Bool = true
     
+    var player: AVAudioPlayer = AVAudioPlayer()
+    
     
     @IBAction func settingButton(_ sender: Any) {
         let settingController=SettingViewController()
@@ -95,8 +97,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         present(settingController, animated: true, completion: nil)
         
     }
-    
-    var player: AVAudioPlayer = AVAudioPlayer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +106,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         sceneView.delegate = self
         
         // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
+        sceneView.showsStatistics = false
         
         //disable sceneView Default Lighting
         sceneView.autoenablesDefaultLighting = true
@@ -152,15 +152,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     
     // preload all food node
     func preLoad(maxFood foodNum: Int) {
+        
+        let pokeBall = Brain()
+        pokeBall.loadPokeBall()
+        
+        pokeBall.simdScale = simd_float3(0.001, 0.001, 0.001)
+        pokeBall.isHidden = true
+        availableFood.append(pokeBall)
+        
+        let skull = Brain()
+        skull.loadSkull()
+        
+        skull.simdScale = simd_float3(0.05, 0.05, 0.05)
+        skull.isHidden = true
+        
+        availableFood.append(skull)
+        
         for _ in 0...maxFood {
             let brain = Brain()
             brain.loadModel()
             
-            brain.position = SCNVector3(0,0,0)
-            brain.simdScale = simd_float3(0.01, 0.01, 0.01)
+            brain.simdScale = simd_float3(0.03, 0.03, 0.03)
             brain.isHidden = true
-            
-            sceneView.scene.rootNode.addChildNode(brain)
             
             availableFood.append(brain)
         }
@@ -197,6 +210,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         self.pet.removeFromParentNode()
         petNotYetPlaced = true
         foodGeneration = false
+        
+        if let ballNode = self.curBallNode, let arrorwNode = self.curArrorwNode {
+            ballNode.isHidden = self.foodGeneration
+            arrorwNode.isHidden = self.foodGeneration
+        }
     }
     
     
@@ -205,6 +223,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         //when clicked put a object on the plane
         petNotYetPlaced = addPet()
         foodGeneration = true
+        if let ballNode = self.curBallNode, let arrorwNode = self.curArrorwNode {
+            ballNode.isHidden = self.foodGeneration
+            arrorwNode.isHidden = self.foodGeneration
+        }
         
     }
     
@@ -262,6 +284,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         // Pause the view's session
         sceneView.session.pause()
         foodGeneration = false
+        player.stop()
     }
     
     // MARK: - ARSCNViewDelegate
@@ -283,14 +306,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             GenerateFood()
         }
     }
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        // Do something with the new transform
-        let currentTransform = frame.camera.transform
-        cameNode.position = SCNVector3(x: currentTransform.columns.3.x, y: currentTransform.columns.3.y, z: currentTransform.columns.3.z)
-        
-    }
-    
     
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
@@ -380,7 +395,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             if prob < self.probabilityOfFruit {
                 
                 // if has already generated enough food
-                if self.foodHasGenerated >= self.maxFood {return}
+                if self.foodHasGenerated > self.maxFood {return}
                 self.foodHasGenerated = self.foodHasGenerated + 1
                 
                 // get an available food node and added into scene
@@ -398,6 +413,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 node.position = SCNVector3(x: self.randomPosition(lowerBound: -1.5, upperBound: 1.5), y: self.randomPosition(lowerBound: -1.5, upperBound: 1.5), z: -0.5)
                 
                 node.isHidden = false
+                
+                self.sceneView.scene.rootNode.addChildNode(node)
                 
                 self.availableFood.remove(at: 0)
                 
@@ -427,7 +444,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 
                 let arrorwNode = Arrorw()
                 arrorwNode.loadModel()
-                arrorwNode.simdScale = simd_float3(0.03, 0.03, 0.03)
+                arrorwNode.simdScale = simd_float3(0.09, 0.09, 0.09)
                 arrorwNode.position = position
                 arrorwNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 1)))
                 
@@ -467,8 +484,27 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                         node.removeFromParentNode()
                         self.updateFood(foodCategory: .brain, num: 1)
                     })
-                } else {
+                } else if node.name == "skull_whole"{
                     // set other component visibility
+                    DispatchQueue.main.async {
+                        node.runAction(SCNAction.move(to: self.getTargetPlace(targetBox: self.pet), duration: 0.5))
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.foodHasGenerated = self.foodHasGenerated - 1
+                        node.removeFromParentNode()
+                        self.updateFood(foodCategory: .bone, num: 1)
+                    })
+                } else if node.name == "pokemon"{
+                    DispatchQueue.main.async {
+                        node.runAction(SCNAction.move(to: self.getTargetPlace(targetBox: self.pet), duration: 0.5))
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.foodHasGenerated = self.foodHasGenerated - 1
+                        node.removeFromParentNode()
+                        self.updateFood(foodCategory: .pokemon, num: 1)
+                    })
                 }
             }
         }
