@@ -15,8 +15,9 @@ class SettingView: UIView{
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
+        label.font = UIFont(name: "ChalkboardSE-Light", size: 30)
 //        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
-
+//        label.enableTogglingFontsOnTap()
         return label
     } ()
     
@@ -25,7 +26,9 @@ class SettingView: UIView{
         label.text = "Welcome to voodoo world, I am your sidekick here, however your day was, I am here for you. I will have fun with you, listen to you, understand you and support you whenever you need, on the top of that, I need food to keep my vitality, go collect some and feed me, you'll see how fun it'd be. Enter my world ,explore, and enjoy!"
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = NSTextAlignment.center
-        label.numberOfLines = 8
+        label.numberOfLines = 12
+        label.font = UIFont(name: "ChalkboardSE-Light", size: 30)
+//        label.enableTogglingFontsOnTap()
 //        label.font = UIFont(name: <#T##String#>, size: <#T##CGFloat#>)
 
         return label
@@ -33,12 +36,14 @@ class SettingView: UIView{
     
     let copyrightLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Copyright © 2018 CSE438 project\n Group(IG No.1)\n All rights reserved"
+        label.text = "Copyright © 2018 CSE438 project\n Group (IG No.1)\n All rights reserved"
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 3
         
 //        label.center = CGPoint(x: 160, y: 284)
         label.textAlignment = NSTextAlignment.center
+        label.font = UIFont(name: "AppleSDGothicNeo-Light", size: 10)
+//        label.enableTogglingFontsOnTap()
         return label
     } ()
     
