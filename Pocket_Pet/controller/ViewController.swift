@@ -72,6 +72,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // create a list, for avilable food node
     var availableFood = [Brain]()
     
+    // create a node for camera
+    let cameNode = SCNNode()
+    
     // all the point node
     var points = [SCNNode]()
     
@@ -103,7 +106,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         sceneView.showsStatistics = true
         
         //disable sceneView Default Lighting
-        sceneView.autoenablesDefaultLighting = false
+        sceneView.autoenablesDefaultLighting = true
         
         // Create a new scene
         let scene = SCNScene()
@@ -191,6 +194,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     @IBAction func resetPet(_ sender: UIButton) {
         self.pet.removeFromParentNode()
         petNotYetPlaced = true
+        foodGeneration = false
     }
     
     
@@ -200,11 +204,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         petNotYetPlaced = addPet()
         foodGeneration = true
         
-        // set all points to be invisible
-
-        for ball in points {
-            ball.isHidden = true
-        }
     }
     
     func playMusic() {
@@ -266,9 +265,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // for adapting light, timely
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         // if exist a estimate of light
-        if let lightEsti = self.sceneView.session.currentFrame?.lightEstimate {
-            sceneLight.intensity = lightEsti.ambientIntensity
-        }
+//        if let lightEsti = self.sceneView.session.currentFrame?.lightEstimate {
+//            sceneLight.intensity = lightEsti.ambientIntensity
+//        }
         
         // update food
         if Int(time) % timeInterval == 0 && foodGeneration == true {
@@ -279,6 +278,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             }
             GenerateFood()
         }
+    }
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        // Do something with the new transform
+        let currentTransform = frame.camera.transform
+        cameNode.position = SCNVector3(x: currentTransform.columns.3.x, y: currentTransform.columns.3.y, z: currentTransform.columns.3.z)
+        
     }
     
     
@@ -405,6 +411,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 ballNode.position = position
                 if self.foodGeneration == true {
                     ballNode.isHidden = true
+                } else {
+                    ballNode.isHidden = false
                 }
             } else {
                 let point = SCNSphere(radius: 0.005)
@@ -503,6 +511,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 print("No plane Available")
                 return
             }
+            
+            let billboardConstraint = SCNBillboardConstraint()
+            billboardConstraint.freeAxes = SCNBillboardAxis.Y
+            self.pet.constraints = [billboardConstraint]
             
             self.pet.show()
             

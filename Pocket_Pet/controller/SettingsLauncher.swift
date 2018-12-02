@@ -179,9 +179,8 @@ class SettingsLauncher: NSObject {
         
         layout.sectionInset = UIEdgeInsets(top: collectionView.bounds.height / 2 - height, left: 20, bottom: 10, right: 20)
         layout.itemSize = cellSize
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        
+        layout.minimumInteritemSpacing = 20
+        layout.minimumLineSpacing = 20
         collectionView.collectionViewLayout = layout
     }
 

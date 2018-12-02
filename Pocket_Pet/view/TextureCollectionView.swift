@@ -53,15 +53,15 @@ class TextureCollectionView: UICollectionView, UICollectionViewDataSource {
     func getImage(texture: Texture) -> UIImage{
         switch texture.identifier {
         case .hungry:
-            return UIImage(named: "hungry_copy")!
+            return UIImage(named: "hungry")!
         case .deadpool:
-            return UIImage(named: "Deadpool_copy")!
+            return UIImage(named: "deadpool")!
         case .happy:
-            return UIImage(named: "happy_copy")!
+            return UIImage(named: "happy")!
         case .boring:
-            return UIImage(named: "boring_copy")!
+            return UIImage(named: "boring")!
         case .muhammer:
-            return UIImage(named: "Muhammer_copy")!
+            return UIImage(named: "original")!
         }
         
         
