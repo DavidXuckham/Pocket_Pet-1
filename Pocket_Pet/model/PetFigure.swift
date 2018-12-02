@@ -28,12 +28,12 @@ class PetFigure: SCNNode {
     
     var fullness:Int = 50 {
         didSet {
-            changeModel()
             if fullness > MAX_VALUE {
                 fullness = MAX_VALUE
             } else if fullness < 0 {
                 fullness = 0
             }
+            changeModel()
         }
     }
     var happiness:Int = 50 {
@@ -97,12 +97,14 @@ class PetFigure: SCNNode {
         case .apple:
             fullness = fullness - 100
             happiness = happiness - 100
+            idleModel = ANGRY_IDLE_MODEL
         case .pokemon:
             fullness = fullness + 10
             happiness = happiness + 15
         case .bone:
             fullness = fullness + 100
             happiness = happiness + 100
+            idleModel = HAPPY_IDLE_MODEL
         }
         
         if fullness > MAX_VALUE {
