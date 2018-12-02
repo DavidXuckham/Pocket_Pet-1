@@ -29,9 +29,22 @@ class PetFigure: SCNNode {
     var fullness:Int = 50 {
         didSet {
             changeModel()
+            if fullness > MAX_VALUE {
+                fullness = MAX_VALUE
+            } else if fullness < 0 {
+                fullness = 0
+            }
         }
     }
-    var happiness:Int = 50
+    var happiness:Int = 50 {
+        didSet {
+            if happiness > MAX_VALUE {
+                happiness = MAX_VALUE
+            } else if happiness < 0 {
+                happiness = 0
+            }
+        }
+    }
     
     override init() {
         idleModel = NORMAL_IDLE_MODEL
@@ -82,21 +95,25 @@ class PetFigure: SCNNode {
             fullness = fullness + 16
             happiness = happiness + 20
         case .apple:
-            fullness = fullness + 4
-            happiness = happiness + 8
+            fullness = fullness - 100
+            happiness = happiness - 100
         case .pokemon:
             fullness = fullness + 10
             happiness = happiness + 15
         case .bone:
-            fullness = fullness + 6
-            happiness = happiness + 12
+            fullness = fullness + 100
+            happiness = happiness + 100
         }
         
         if fullness > MAX_VALUE {
             fullness = MAX_VALUE
+        } else if fullness < 0 {
+            fullness = 0
         }
         if happiness > MAX_VALUE {
             happiness = MAX_VALUE
+        } else if happiness < 0 {
+            happiness = 0
         }
         
         wrapperNode.removeFromParentNode()
