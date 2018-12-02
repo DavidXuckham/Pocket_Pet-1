@@ -153,6 +153,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // preload all food node
     func preLoad(maxFood foodNum: Int) {
         
+        let apple = Brain()
+        apple.loadApple()
+        
+        apple.simdScale = simd_float3(0.1, 0.1, 0.1)
+        apple.isHidden = true
+        availableFood.append(apple)
+        
         let pokeBall = Brain()
         pokeBall.loadPokeBall()
         
@@ -502,6 +509,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                         self.foodHasGenerated = self.foodHasGenerated - 1
                         node.removeFromParentNode()
                         self.updateFood(foodCategory: .pokemon, num: 1)
+                    })
+                } else if node.name == "Apple"{
+                    DispatchQueue.main.async {
+                        node.runAction(SCNAction.move(to: SCNVector3(0,1,0), duration: 0.5))
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.foodHasGenerated = self.foodHasGenerated - 1
+                        node.removeFromParentNode()
+                        self.updateFood(foodCategory: .apple, num: 1)
                     })
                 }
             }
