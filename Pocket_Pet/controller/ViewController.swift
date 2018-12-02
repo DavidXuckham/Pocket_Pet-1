@@ -422,8 +422,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                     self.preLoad(maxFood: self.maxFood)
                 }
             }
-            
-            
         }
     }
     
@@ -477,7 +475,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                     pet.touched()
                 } else if node.name == "brain" {
                     DispatchQueue.main.async {
-                        node.runAction(SCNAction.move(to: self.getTargetPlace(targetBox: self.pet), duration: 0.5))
+                        node.runAction(SCNAction.move(to: SCNVector3(0,4,0), duration: 0.5))
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                         self.foodHasGenerated = self.foodHasGenerated - 1
@@ -487,7 +485,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 } else if node.name == "skull_whole"{
                     // set other component visibility
                     DispatchQueue.main.async {
-                        node.runAction(SCNAction.move(to: self.getTargetPlace(targetBox: self.pet), duration: 0.5))
+                        node.runAction(SCNAction.move(to: SCNVector3(0,6,0), duration: 0.5))
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -497,7 +495,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                     })
                 } else if node.name == "pokemon"{
                     DispatchQueue.main.async {
-                        node.runAction(SCNAction.move(to: self.getTargetPlace(targetBox: self.pet), duration: 0.5))
+                        node.runAction(SCNAction.move(to: SCNVector3(0,10,0), duration: 0.5))
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -539,11 +537,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // food collection view update
     func updataFoodCollection() {
         settingsLauncher.foodCollectionView.food = foods
-    }
-    
-    // get the target box bounding
-    func getTargetPlace(targetBox target: PetFigure) -> SCNVector3 {
-        return SCNVector3(0,4,0)
     }
     
     //add object will be called when plane detected, put into currentPetAnchor
