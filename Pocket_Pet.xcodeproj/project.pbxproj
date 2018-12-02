@@ -11,6 +11,7 @@
 		2D89431821B0DB1900A11DA1 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D89431621B0DB1900A11DA1 /* SettingViewController.xib */; };
 		2D89431A21B0E2F400A11DA1 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D89431921B0E2F400A11DA1 /* PresentationViewController.swift */; };
 		7801B3DC21B242F0001DD8D6 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7801B3DB21B242F0001DD8D6 /* BackgroundMusic.mp3 */; };
+		7801B3DE21B3B689001DD8D6 /* Arrorw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801B3DD21B3B689001DD8D6 /* Arrorw.swift */; };
 		7813FE53219B8AB700FAF569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE52219B8AB700FAF569 /* AppDelegate.swift */; };
 		7813FE55219B8AB700FAF569 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 7813FE54219B8AB700FAF569 /* art.scnassets */; };
 		7813FE57219B8AB700FAF569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7813FE56219B8AB700FAF569 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		2D89431621B0DB1900A11DA1 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		2D89431921B0E2F400A11DA1 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		7801B3DB21B242F0001DD8D6 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
+		7801B3DD21B3B689001DD8D6 /* Arrorw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrorw.swift; sourceTree = "<group>"; };
 		7813FE4F219B8AB700FAF569 /* Pocket_Pet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pocket_Pet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7813FE52219B8AB700FAF569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7813FE54219B8AB700FAF569 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				789A800C21AB44360052A0CB /* Brain.swift */,
+				7801B3DD21B3B689001DD8D6 /* Arrorw.swift */,
 				783B8B79219E7C7700A9812B /* PetFigure.swift */,
 				8A8113AB21ACBAD3005A0158 /* Food.swift */,
 				8A8113B121ACF2D1005A0158 /* Texture.swift */,
@@ -366,6 +369,7 @@
 				8A8113AC21ACBAD3005A0158 /* Food.swift in Sources */,
 				7813FE57219B8AB700FAF569 /* ViewController.swift in Sources */,
 				7813FE53219B8AB700FAF569 /* AppDelegate.swift in Sources */,
+				7801B3DE21B3B689001DD8D6 /* Arrorw.swift in Sources */,
 				2D89431721B0DB1900A11DA1 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,8 +30,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // current indicator for ball placing
     var curBallNode:SCNNode!
     
+    // arror indicator
+    var curArrorwNode:SCNNode!
+    
     // visualization for plane, 1: light, 0: invisible
-    var planeVisualizationParam:Float = 1
+    var planeVisualizationParam:Float = 0
     
     // current petNode
     var curPetNode:SCNNode? = nil
@@ -154,14 +157,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             brain.loadModel()
             
             brain.position = SCNVector3(0,0,0)
-            brain.simdScale = simd_float3(10, 10, 10)
+            brain.simdScale = simd_float3(0.01, 0.01, 0.01)
             brain.isHidden = true
             
             sceneView.scene.rootNode.addChildNode(brain)
             
             availableFood.append(brain)
         }
-        print("finish")
     }
     
     var petNotYetPlaced: Bool = true {
@@ -222,6 +224,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         catch{
             //error
         }
+        player.numberOfLoops = -1
+        player.prepareToPlay()
         player.play()
     }
     
@@ -241,7 +245,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
         configuration.isLightEstimationEnabled = true
         
         // set the plane visualization percentage
-        planeVisualizationParam = 1
+        planeVisualizationParam = 0
         
         // display the feature points for debug issue
         //        #if DEBUG
@@ -265,9 +269,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // for adapting light, timely
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         // if exist a estimate of light
-//        if let lightEsti = self.sceneView.session.currentFrame?.lightEstimate {
-//            sceneLight.intensity = lightEsti.ambientIntensity
-//        }
+        if let lightEsti = self.sceneView.session.currentFrame?.lightEstimate {
+            sceneLight.intensity = lightEsti.ambientIntensity
+        }
         
         // update food
         if Int(time) % timeInterval == 0 && foodGeneration == true {
@@ -389,6 +393,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
                 
                 let node = self.availableFood.first!
                 
+                node.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 1)))
+                
                 node.position = SCNVector3(x: self.randomPosition(lowerBound: -1.5, upperBound: 1.5), y: self.randomPosition(lowerBound: -1.5, upperBound: 1.5), z: -0.5)
                 
                 node.isHidden = false
@@ -407,19 +413,28 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     // create point, which is the ball, called whenever detected a plane
     func createPoint(position: SCNVector3) {
         DispatchQueue.main.async {
-            if let ballNode = self.curBallNode {
+            if let ballNode = self.curBallNode, let arrorwNode = self.curArrorwNode {
                 ballNode.position = position
-                if self.foodGeneration == true {
-                    ballNode.isHidden = true
-                } else {
-                    ballNode.isHidden = false
-                }
+                arrorwNode.position = position
+                
+                ballNode.isHidden = self.foodGeneration
+                arrorwNode.isHidden = self.foodGeneration
             } else {
-                let point = SCNSphere(radius: 0.005)
+                
+                let point = SCNSphere(radius: 0.003)
                 let ballNode = SCNNode(geometry: point)
                 ballNode.position = position
+                
+                let arrorwNode = Arrorw()
+                arrorwNode.loadModel()
+                arrorwNode.simdScale = simd_float3(0.03, 0.03, 0.03)
+                arrorwNode.position = position
+                arrorwNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 1)))
+                
                 self.sceneView.scene.rootNode.addChildNode(ballNode)
+                self.sceneView.scene.rootNode.addChildNode(arrorwNode)
                 self.curBallNode = ballNode
+                self.curArrorwNode = arrorwNode
             }
         }
         
@@ -492,7 +507,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
     
     // get the target box bounding
     func getTargetPlace(targetBox target: PetFigure) -> SCNVector3 {
-        return SCNVector3(0,2,0)
+        return SCNVector3(0,4,0)
     }
     
     //add object will be called when plane detected, put into currentPetAnchor
@@ -523,7 +538,6 @@ class ViewController: UIViewController, ARSCNViewDelegate, UICollectionViewDeleg
             
             self.sceneView.scene.rootNode.addChildNode(self.pet)
             self.planeVisualizationParam = 0
-            print("locate one")
         }
         return false
 //        }
