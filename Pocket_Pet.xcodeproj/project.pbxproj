@@ -30,6 +30,10 @@
 		8A8113AE21ACDC96005A0158 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8113AD21ACDC96005A0158 /* DisplayView.swift */; };
 		8A8113B021ACF289005A0158 /* TextureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8113AF21ACF289005A0158 /* TextureCollectionView.swift */; };
 		8A8113B221ACF2D1005A0158 /* Texture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8113B121ACF2D1005A0158 /* Texture.swift */; };
+		8AF7444121B37A0500701D96 /* PMAnimationLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7444021B37A0500701D96 /* PMAnimationLabelView.swift */; };
+		8AF7444721B387B800701D96 /* UILabel+ToggleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7444421B387B700701D96 /* UILabel+ToggleFonts.swift */; };
+		8AF7444821B387B800701D96 /* FontNames-iOS12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7444521B387B800701D96 /* FontNames-iOS12.swift */; };
+		8AF7444921B387B800701D96 /* UIFont+PrintAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF7444621B387B800701D96 /* UIFont+PrintAll.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		8A8113AD21ACDC96005A0158 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		8A8113AF21ACF289005A0158 /* TextureCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureCollectionView.swift; sourceTree = "<group>"; };
 		8A8113B121ACF2D1005A0158 /* Texture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texture.swift; sourceTree = "<group>"; };
+		8AF7444021B37A0500701D96 /* PMAnimationLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMAnimationLabelView.swift; sourceTree = "<group>"; };
+		8AF7444421B387B700701D96 /* UILabel+ToggleFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+ToggleFonts.swift"; sourceTree = "<group>"; };
+		8AF7444521B387B800701D96 /* FontNames-iOS12.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FontNames-iOS12.swift"; sourceTree = "<group>"; };
+		8AF7444621B387B800701D96 /* UIFont+PrintAll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+PrintAll.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,11 +196,15 @@
 		8A8113A821ACB9D0005A0158 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8AF7444521B387B800701D96 /* FontNames-iOS12.swift */,
+				8AF7444621B387B800701D96 /* UIFont+PrintAll.swift */,
+				8AF7444421B387B700701D96 /* UILabel+ToggleFonts.swift */,
 				8A8113A921ACB9E9005A0158 /* FoodCollectionView.swift */,
 				8A8113AD21ACDC96005A0158 /* DisplayView.swift */,
 				8A8113AF21ACF289005A0158 /* TextureCollectionView.swift */,
 				8A3D4A2421B235280020B53A /* SettingView.swift */,
 				8A3D4A2621B250B40020B53A /* SettingView.xib */,
+				8AF7444021B37A0500701D96 /* PMAnimationLabelView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -340,7 +352,11 @@
 				8A8113AE21ACDC96005A0158 /* DisplayView.swift in Sources */,
 				789A800D21AB44360052A0CB /* Brain.swift in Sources */,
 				783B8B7A219E7C7700A9812B /* PetFigure.swift in Sources */,
+				8AF7444721B387B800701D96 /* UILabel+ToggleFonts.swift in Sources */,
 				8A3D4A2521B235280020B53A /* SettingView.swift in Sources */,
+				8AF7444921B387B800701D96 /* UIFont+PrintAll.swift in Sources */,
+				8AF7444121B37A0500701D96 /* PMAnimationLabelView.swift in Sources */,
+				8AF7444821B387B800701D96 /* FontNames-iOS12.swift in Sources */,
 				8A8113A721ACB7AB005A0158 /* SettingsLauncher.swift in Sources */,
 				8A8113AA21ACB9E9005A0158 /* FoodCollectionView.swift in Sources */,
 				783B8B7C21A9F49D00A9812B /* EnrtyViewController.swift in Sources */,
